@@ -1,0 +1,10 @@
+Package: ping-chime
+Version: 1.0-5
+Section: utils
+Priority: optional
+Architecture: all
+Depends: perl, libnet-ping-perl, libconfig-simple-perl, adduser, sound-icons
+Maintainer: Andrew Dougherty <adougher9@gmail.com>
+Description: Ping and Chime Service
+ A service that pings a host every x minutes
+ and logs the results.

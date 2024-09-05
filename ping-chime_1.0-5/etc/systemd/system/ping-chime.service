@@ -1,0 +1,17 @@
+[Unit]
+Description=Ping and Chime Service
+After=network.target pulseaudio.service
+Wants=pulseaudio.service
+
+[Service]
+ExecStart=/usr/bin/perl /usr/local/bin/ping_chime.pl
+Restart=always
+User=<USERNAME>
+Group=<USERNAME>
+Environment=XDG_RUNTIME_DIR=/run/user/<UID>
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

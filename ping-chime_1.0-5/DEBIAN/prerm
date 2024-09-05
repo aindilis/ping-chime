@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Stop and disable the service
+systemctl stop ping-chime
+systemctl disable ping-chime
+
+exit 0

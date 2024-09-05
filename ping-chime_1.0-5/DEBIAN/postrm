@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+# Remove ping-chime user if it exists
+if id ping-chime >/dev/null 2>&1; then
+    deluser --system ping-chime
+fi
+
+# Remove ping-chime group if it exists
+if getent group ping-chime >/dev/null 2>&1; then
+    delgroup --system ping-chime
+fi
+
+exit 0

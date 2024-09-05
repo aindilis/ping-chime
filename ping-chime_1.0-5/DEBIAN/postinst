@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+# Create ping-chime user if it doesn't exist
+if ! id ping-chime >/dev/null 2>&1; then
+    adduser --system --no-create-home --disabled-login --group ping-chime
+fi
+
+# case "$1" in
+#     configure)
+#         for user in $(awk -F: '$3 >= 1000 && $3 != 65534 {print $1}' /etc/passwd); do
+#             user_home=$(eval echo ~$user)
+#             mkdir -p $user_home/.config/ping-chime
+#             chown $user:$user $user_home/.config/ping-chime
+#         done
+#         ;;
+# esac
+
+# Set up the service
+systemctl daemon-reload
+systemctl enable ping-chime
+systemctl start ping-chime
+
+exit 0
